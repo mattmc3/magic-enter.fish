@@ -7,13 +7,13 @@ A fish shell plugin to run `ls` when no command is given
 [reel] installation:
 
 ```shell
-reel in mattmc3/macos.fish
+reel in mattmc3/auto-ls.fish
 ```
 
 [fisher] installation:
 
 ```shell
-fisher add mattmc3/macos.fish
+fisher add mattmc3/auto-ls.fish
 ```
 
 ## Inspiration
