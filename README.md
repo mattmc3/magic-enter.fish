@@ -13,7 +13,7 @@ reel in mattmc3/auto-ls.fish
 [fisher] installation:
 
 ```shell
-fisher add mattmc3/auto-ls.fish
+fisher install mattmc3/auto-ls.fish
 ```
 
 ## Inspiration
