@@ -1,25 +1,19 @@
-# auto-ls.fish
+# magic-enter.fish
 
-A fish shell plugin to run `ls` when no command is given
+A fish shell plugin to run a default command when no command is given.
 
 ## Install
-
-[reel] installation:
-
-```shell
-reel in mattmc3/auto-ls.fish
-```
 
 [fisher] installation:
 
 ```shell
-fisher install mattmc3/auto-ls.fish
+fisher install mattmc3/magic-enter.fish
 ```
 
 ## Inspiration
 
-- Zsh has a similar plugin [here][auto-ls].
+- Oh-My-Zsh has a [magic-enter plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/magic-enter)
+- Zsh has another one called [auto-ls](https://github.com/desyncr/auto-ls)
 
-[reel]: https://github.com/mattmc3/reel
+
 [fisher]: https://github.com/jorgebucaran/fisher
-[auto-ls]: https://github.com/desyncr/auto-ls
