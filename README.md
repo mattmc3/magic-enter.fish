@@ -2,6 +2,20 @@
 
 A fish shell plugin to run a default command when no command is given.
 
+## Usage
+
+Hit enter at your empty fish prompt and whatever command the function `magic-enter-cmd`
+returns will be run.
+
+```fish
+$ # hit enter on the next prompt and it will run:
+$ # ls -FG && git status -sb
+$
+LICENSE    README.md  conf.d/
+## main...origin/main
+ M README.md
+```
+
 ## Install
 
 [fisher] installation:
