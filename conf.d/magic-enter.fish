@@ -1,4 +1,4 @@
-function magic-enter-cmd
+function magic-enter-cmd --description "Returns the command when enter is pressed on an empty command line"
     set -l cmd
     switch (uname)
         case Darwin
@@ -9,14 +9,15 @@ function magic-enter-cmd
     if command git rev-parse --is-inside-work-tree &>/dev/null
         set cmd "$cmd && git status -sb"
     end
-    eval $cmd
+    echo $cmd
 end
 
 function magic-enter
     set -l cmd (commandline)
     if test -z "$cmd"
-        magic-enter-cmd
+        set cmd (magic-enter-cmd)
     end
+    commandline -r $cmd
     commandline -f execute
 end
 
