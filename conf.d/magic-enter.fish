@@ -10,7 +10,6 @@ function magic-enter-cmd
         set cmd "$cmd && git status -sb"
     end
     eval $cmd
-    commandline -f execute
 end
 
 function magic-enter
