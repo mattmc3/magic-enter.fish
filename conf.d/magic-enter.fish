@@ -15,9 +15,8 @@ end
 function magic-enter
     set -l cmd (commandline)
     if test -z "$cmd"
-        set cmd (magic-enter-cmd)
+        commandline -r (magic-enter-cmd)
     end
-    commandline -r $cmd
     commandline -f execute
 end
 
