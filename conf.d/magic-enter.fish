@@ -1,4 +1,4 @@
-function magic-enter-cmd --description "Returns the command when enter is pressed on an empty command line"
+function magic-enter-cmd --description "Print the command to run when no command was given"
     set -l cmd
     switch (uname)
         case Darwin
