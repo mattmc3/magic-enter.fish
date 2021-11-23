@@ -7,7 +7,7 @@ function magic-enter-cmd
             set cmd ls
     end
     if command git rev-parse --is-inside-work-tree &>/dev/null
-        set cmd "$cmd && git status -s"
+        set cmd "$cmd && git status -sb"
     end
     eval $cmd
     commandline -f execute
