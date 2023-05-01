@@ -19,9 +19,9 @@ conf.d/  completions/  functions/  config.fish  fish_variables
 Or, if you are in a repo, you'll see the `git status`:
 
 ```fish
-$ cd $__fish_config_dir
-$ # hit enter on the next prompt and it will run:
-$ # git status -sb
+$ # assuming you have a dotfiles git project
+$ cd $HOME/.dotfiles
+$ # now hit enter to run `git status -sb`
 $
 ## main...origin/main
  M README.md
