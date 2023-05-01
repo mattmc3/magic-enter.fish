@@ -29,16 +29,22 @@ $
 
 ## Customization
 
-If you want to configure different magic commands, simply override the `magic-enter-cmd` function in the `$__fish_config_dir/functions/magic-enter-cmd.fish` file.
+If you want to configure different magic commands, simply create your own `magic-enter-cmd` function. In the `$__fish_config_dir/functions/magic-enter-cmd.fish` file, you can add something like this:
 
 ```fish
 function magic-enter-cmd --description "Customize your own magic-commands"
     # default magic command
     set --local my_magic_command 'ls -laF'
+    
     # git dir magic command
     if command git rev-parse --is-inside-work-tree &>/dev/null
         set my_magic_command "ls && git status"
     end
+    
+    # look for something else, like an .env directory
+    # or whatever other magic commands you need
+    # ...
+    
     # be sure not to actually run the command
     # just print it out
     echo $my_magic_command
