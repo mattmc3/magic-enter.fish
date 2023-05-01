@@ -1,19 +1,48 @@
 # magic-enter.fish
 
-A fish shell plugin to run a default command when no command is given.
+> This plugin makes your enter key magical, by binding commonly used commands to it.
+
+This is a pure Fish implementation of the [Oh My Zsh magic-enter][omz-magic-enter] plugin.
 
 ## Usage
 
-Hit enter at your empty fish prompt and whatever command the function `magic-enter-cmd`
-returns will be run.
+Press return at an empty Fish prompt and magic-enter will run a default command. For regular directories, magic-enter will run `ls`. For git repositories, it will run `git status -sb`.
 
 ```fish
-$ # hit enter on the next prompt and it will run:
-$ # ls -FG && git status -sb
+$ # change to your $HOME
+$ cd $__fish_config_dir
+$ # now, just hit enter at an empty prompt, and ls will run
 $
-LICENSE    README.md  conf.d/
+conf.d/  completions/  functions/  config.fish  fish_variables
+```
+
+Or, if you are in a repo, you'll see the `git status`:
+
+```fish
+$ cd $__fish_config_dir
+$ # hit enter on the next prompt and it will run:
+$ # git status -sb
+$
 ## main...origin/main
  M README.md
+```
+
+## Customization
+
+If you want to configure different magic commands, simply override the `magic-enter-cmd` function in the `$__fish_config_dir/functions/magic-enter-cmd.fish` file.
+
+```fish
+function magic-enter-cmd --description "Customize your own magic-commands"
+    # default magic command
+    set --local my_magic_command 'ls -laF'
+    # git dir magic command
+    if command git rev-parse --is-inside-work-tree &>/dev/null
+        set my_magic_command "ls && git status"
+    end
+    # be sure not to actually run the command
+    # just print it out
+    echo $my_magic_command
+end
 ```
 
 ## Install
@@ -24,10 +53,5 @@ LICENSE    README.md  conf.d/
 fisher install mattmc3/magic-enter.fish
 ```
 
-## Inspiration
-
-- Oh-My-Zsh has a [magic-enter plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/magic-enter)
-- Zsh has another one called [auto-ls](https://github.com/desyncr/auto-ls)
-
-
 [fisher]: https://github.com/jorgebucaran/fisher
+[omz-magic-enter]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/magic-enter
