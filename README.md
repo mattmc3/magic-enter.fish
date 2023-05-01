@@ -9,7 +9,7 @@ This is a pure Fish implementation of the [Oh My Zsh magic-enter][omz-magic-ente
 Press return at an empty Fish prompt and magic-enter will run a default command. For regular directories, magic-enter will run `ls`. For git repositories, it will run `git status -sb`.
 
 ```fish
-$ # change to your $HOME
+$ # change to your Fish dir
 $ cd $__fish_config_dir
 $ # now, just hit enter at an empty prompt, and ls will run
 $
