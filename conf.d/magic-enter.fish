@@ -15,4 +15,11 @@ function magic-enter
     commandline -f execute
 end
 
-bind \r magic-enter
+function magic-enter-bindings --description "Bind magic-enter for default and vi key bindings"
+    bind \r magic-enter
+    if functions -q fish_vi_key_bindings
+        bind -M insert \r magic-enter
+        bind -M default \r magic-enter
+    end
+end
+magic-enter-bindings
